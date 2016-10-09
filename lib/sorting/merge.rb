@@ -1,11 +1,8 @@
-module Sorting
-  class Merge < Struct.new(:arr)
-    def execute
-      sort
-      arr
-    end
+require_relative './base'
 
-    private
+module Sorting
+  class Merge < Base
+    protected
 
     def sort(from = 0, to = arr.length - 1)
       return if to <= from

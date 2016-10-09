@@ -1,11 +1,8 @@
-module Sorting
-  class QuickSortHoare < Struct.new(:arr)
-    def execute
-      sort
-      arr
-    end
+require_relative './base'
 
-    private
+module Sorting
+  class QuickSortHoare < Base
+    protected
 
     def sort(left = 0, right = arr.length - 1)
       return if left >= right

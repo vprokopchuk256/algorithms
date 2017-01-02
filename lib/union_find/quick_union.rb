@@ -1,11 +1,9 @@
-module UnionFind
-  class QuickUnion
-    def initialize(number_of_items)
-      @items = Array.new(number_of_items, &:itself)
-    end
+require_relative 'base'
 
+module UnionFind
+  class QuickUnion < Base
     def union(p, q)
-      @items[root(p)] = root(q)
+      items[root(p)] = root(q)
     end
 
     def connected?(p, q)
@@ -15,7 +13,7 @@ module UnionFind
     private
 
     def root(i)
-      i = @items[i] while @items[i] != i
+      i = items[i] while items[i] != i
       i
     end
   end

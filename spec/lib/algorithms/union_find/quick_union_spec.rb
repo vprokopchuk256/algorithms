@@ -1,6 +1,6 @@
-require_relative '../../../lib/union_find/quick_union.rb'
+require_relative '../../../../lib/algorithms/union_find/quick_union.rb'
 
-RSpec.describe UnionFind::QuickUnion do
+RSpec.describe Algorithms::UnionFind::QuickUnion do
   let(:number_of_items) { 10 }
 
   subject(:quick_find) { described_class.new(number_of_items) }

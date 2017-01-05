@@ -1,6 +1,6 @@
-require_relative '../../../lib/sorting/insertion.rb'
+require_relative '../../../../lib/algorithms/sorting/insertion.rb'
 
-RSpec.describe Sorting::Insertion do
+RSpec.describe Algorithms::Sorting::Insertion do
   let(:arr) { [] }
 
   let(:algorithm) { described_class.new(arr) }

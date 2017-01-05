@@ -1,6 +1,6 @@
-require_relative '../../../lib/sorting/merge.rb'
+require_relative '../../../../lib/algorithms/sorting/quick_sort_hoare.rb'
 
-RSpec.describe Sorting::Merge do
+RSpec.describe Algorithms::Sorting::QuickSortHoare do
   let(:arr) { [] }
 
   let(:algorithm) { described_class.new(arr) }
@@ -41,7 +41,7 @@ RSpec.describe Sorting::Merge do
     end
 
     context 'when array is reversed' do
-      let(:arr) { [3, 2, 1, 4] }
+      let(:arr) { [4, 3, 2, 1] }
 
       it { is_expected.to eq([1, 2, 3, 4]) }
     end

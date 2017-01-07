@@ -6,11 +6,19 @@ module Algorithms
       protected
 
       def sort
-        until (1...arr.length).select(&method(:swap)).empty? do; end
+        0.step(arr.length - 1) do |i|
+          i.step(1, -1) do |j|
+            break if arr[j] >= arr[j - 1]
+
+            swap(j, j - 1)
+          end
+        end
       end
 
-      def swap(i)
-        (arr[i], arr[i - 1] = arr[i - 1], arr[i]) if arr[i] < arr[i - 1]
+      private
+
+      def swap(i, j)
+        arr[j], arr[i] = arr[i], arr[j]
       end
     end
   end

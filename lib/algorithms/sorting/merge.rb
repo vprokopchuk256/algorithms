@@ -1,8 +1,8 @@
-require_relative './base'
+require_relative './base_merge'
 
 module Algorithms
   module Sorting
-    class Merge < Base
+    class Merge < BaseMerge
       protected
 
       def sort(from = 0, to = arr.length - 1)
@@ -19,30 +19,6 @@ module Algorithms
         sort(mid + 1, to)
 
         merge(from, mid, mid + 1, to)
-      end
-
-      def merge(lfrom, lto, rfrom, rto)
-        mpos, lpos, rpos = lfrom, lfrom, rfrom
-
-        while lpos <= lto && rpos <= rto
-          if arr[lpos] < arr[rpos]
-            mplace[mpos] = arr[lpos]
-            lpos += 1
-          else
-            mplace[mpos] = arr[rpos]
-            rpos += 1
-          end
-
-          mpos += 1
-        end
-
-        (lpos..lto).each { |p| mplace[mpos] = arr[p] && mpos += 1 }
-        (rpos..rto).each { |p| mplace[mpos] = arr[p] && mpos += 1 }
-        (lfrom..rto).each { |i| arr[i] = mplace[i] }
-      end
-
-      def mplace
-        @mplace ||= Array.new(arr.length)
       end
     end
   end

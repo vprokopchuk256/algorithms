@@ -1,8 +1,10 @@
 require_relative 'utils/swap'
+require_relative 'utils/partition'
 
 module Algorithms
   class QuickSelect
     include Utils::Swap
+    include Utils::Partition
 
     attr_reader :arr
 
@@ -23,23 +25,6 @@ module Algorithms
       end
 
       arr[k]
-    end
-
-    private
-
-    def partition(left, right)
-      i, j = left, right
-
-      loop do
-        i += 1 while arr[i] < arr[left] && i != right
-        j -= 1 while arr[left] < arr[j] && j != left
-        break if i >= j
-
-        swap(i, j)
-      end
-
-      swap(left, j)
-      j
     end
   end
 end

@@ -15,23 +15,18 @@ module Algorithms
       end
 
       def partition(left, right)
-        lpos, rpos, pivot = left - 1, right + 1, arr[left]
+        i, j = left, right
 
         loop do
-          loop do
-            lpos += 1
-            break if arr[lpos] >= pivot
-          end
+          i += 1 while arr[i] < arr[left] && i != right
+          j -= 1 while arr[left] < arr[j] && j != left
+          break if i >= j
 
-          loop do
-            rpos -= 1
-            break if arr[rpos] <= pivot
-          end
-
-          return rpos if lpos >= rpos
-
-          arr[lpos], arr[rpos] = arr[rpos], arr[lpos]
+          swap(i, j)
         end
+
+        swap(left, j)
+        j
       end
     end
   end

@@ -18,10 +18,6 @@ module Algorithms
       def min_value_index(from:)
         each_index(from: from + 1).inject(from) { |m, j| arr[j] < arr[m] ? j : m }
       end
-
-      def swap(i, j)
-        arr[j], arr[i] = arr[i], arr[j]
-      end
     end
   end
 end

@@ -1,15 +1,13 @@
+require_relative '../utils/swap'
+
 module Algorithms
   module Sorting
     class Base < Struct.new(:arr)
+      include Utils::Swap
+
       def execute
         sort
         arr
-      end
-
-      protected
-
-      def swap(i, j)
-        arr[j], arr[i] = arr[i], arr[j]
       end
     end
   end

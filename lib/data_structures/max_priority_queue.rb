@@ -31,8 +31,7 @@ module Algorithms
       end
 
       def sink(k = 1)
-        while 2 * k <= @arr.length - 1
-          j = 2 * k
+        while (j = 2 * k) <= @arr.length - 1
           j += 1 if j < last_index && less(j, j + 1)
           break if not less(k, j)
           swap(k, j)

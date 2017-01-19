@@ -6,7 +6,7 @@ module Algorithms
         @values = []
       end
 
-      def insert(key, value)
+      def put(key, value)
         i = rank(key)
 
         @keys.insert(i, key)
@@ -15,6 +15,15 @@ module Algorithms
 
       def empty?
         @keys.empty?
+      end
+
+      def delete(key)
+        return if empty? || (i = rank(key)) >= @keys.length
+
+        if @keys[i] == key
+          @keys.delete_at(i)
+          @values.delete_at(i)
+        end
       end
 
       def get(key)

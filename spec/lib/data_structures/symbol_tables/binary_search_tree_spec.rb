@@ -1,9 +1,7 @@
-require_relative '../../../../lib/data_structures/symbol_tables/binary.rb'
+require_relative '../../../../lib/data_structures/symbol_tables/binary_search_tree.rb'
 
-RSpec.describe Algorithms::SymbolTables::Binary do
+RSpec.describe Algorithms::DataStructures::SymbolTables::BinarySearchTree do
   subject(:table) { described_class.new }
-
-  it { is_expected.to be_empty }
 
   it 'returns nil for non existing key' do
     expect(table.get('k')).to be_nil
@@ -20,10 +18,6 @@ RSpec.describe Algorithms::SymbolTables::Binary do
 
     it 'returns key value' do
       expect(table.get('k')).to eq(5)
-    end
-
-    it 'allows to delete value by key' do
-      expect{ table.delete('k') }.to change(table, :empty?).to(true)
     end
 
     it 'does nothing when non existing key is deleted' do

@@ -1,6 +1,6 @@
 require_relative '../../../../lib/data_structures/symbol_tables/left_leaning_red_black_binary_search_tree.rb'
 
-RSpec.describe Algorithms::DataStructures::SymbolTables::LeftLeaningRedBlackBinarySearchTree do
+RSpec.describe DataStructures::SymbolTables::LeftLeaningRedBlackBinarySearchTree do
   subject(:table) { described_class.new }
 
   it 'returns nil for non existing key' do

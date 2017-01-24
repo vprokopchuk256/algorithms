@@ -1,6 +1,6 @@
 require_relative '../../../../lib/data_structures/symbol_tables/linear_probing_hash.rb'
 
-RSpec.describe Algorithms::DataStructures::SymbolTables::LinearProbingHash do
+RSpec.describe DataStructures::SymbolTables::LinearProbingHash do
   subject(:table) { described_class.new }
 
   it 'returns nil for non existing key' do

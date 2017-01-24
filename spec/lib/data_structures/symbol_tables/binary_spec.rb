@@ -1,6 +1,6 @@
 require_relative '../../../../lib/data_structures/symbol_tables/binary.rb'
 
-RSpec.describe Algorithms::SymbolTables::Binary do
+RSpec.describe DataStructures::SymbolTables::Binary do
   subject(:table) { described_class.new }
 
   it { is_expected.to be_empty }

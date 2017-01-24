@@ -1,4 +1,4 @@
-module Algorithms
+module DataStructures
   module SymbolTables
     class Binary
       def initialize

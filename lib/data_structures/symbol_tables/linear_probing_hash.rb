@@ -1,47 +1,45 @@
-module Algorithms
-  module DataStructures
-    module SymbolTables
-      class LinearProbingHash
-        M = 300001
-        private_constant :M
+module DataStructures
+  module SymbolTables
+    class LinearProbingHash
+      M = 300001
+      private_constant :M
 
-        def put(key, value)
-          i = hash(key)
+      def put(key, value)
+        i = hash(key)
 
-          while keys[i]
-            break if keys[i] == key
-            i = (i + 1) % M
-          end
-
-          keys[i] = key
-          values[i] = value
+        while keys[i]
+          break if keys[i] == key
+          i = (i + 1) % M
         end
 
-        def get(key)
-          i = hash(key)
+        keys[i] = key
+        values[i] = value
+      end
 
-          while keys[i]
-            return values[i] if keys[i] == key
+      def get(key)
+        i = hash(key)
 
-            i = (i + 1) % M
-          end
+        while keys[i]
+          return values[i] if keys[i] == key
 
-          nil
+          i = (i + 1) % M
         end
 
-        private
+        nil
+      end
 
-        def values
-          @values ||= Array.new(M)
-        end
+      private
 
-        def keys
-          @keys ||= Array.new(M)
-        end
+      def values
+        @values ||= Array.new(M)
+      end
 
-        def hash(key)
-          (key.hash && 0x7fffffff) % M
-        end
+      def keys
+        @keys ||= Array.new(M)
+      end
+
+      def hash(key)
+        (key.hash && 0x7fffffff) % M
       end
     end
   end

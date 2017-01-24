@@ -1,6 +1,6 @@
 require_relative '../../../../lib/data_structures/symbol_tables/separate_chaining_hash.rb'
 
-RSpec.describe Algorithms::DataStructures::SymbolTables::SeparateChainingHash do
+RSpec.describe DataStructures::SymbolTables::SeparateChainingHash do
   subject(:table) { described_class.new }
 
   it 'returns nil for non existing key' do

@@ -1,6 +1,6 @@
 module Algorithms
   module Graph
-    class DeepFirstPaths
+    class DepthFirstPaths
       include Enumerable
 
       class EnumerationBlock

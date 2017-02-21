@@ -21,4 +21,14 @@ RSpec.describe Algorithms::DataStructures::Graphs::EdgeWeighted do
       end
     end
   end
+
+  describe 'edges' do
+    let(:edge) { Algorithms::DataStructures::Graphs::Edge.new(0, 1, 100) }
+
+    subject { graph.edges }
+
+    before { graph.add(edge) }
+
+    it { is_expected.to match_array([edge]) }
+  end
 end

@@ -1,12 +1,12 @@
-require_relative '../../../lib/data_structures/max_priority_queue.rb'
+require_relative '../../../../lib/data_structures/priority_queues/min.rb'
 
-RSpec.describe Algorithms::DataStructures::MaxPriorityQueue do
+RSpec.describe Algorithms::DataStructures::PriorityQueues::Min do
   subject(:queue) { described_class.new }
 
   it { is_expected.to be_empty }
 
-  it 'does not have max element yet' do
-    expect(queue.del_max).to eq(nil)
+  it 'does not have min element yet' do
+    expect(queue.del_min).to eq(nil)
   end
 
   context 'when 1 element is added' do
@@ -14,8 +14,8 @@ RSpec.describe Algorithms::DataStructures::MaxPriorityQueue do
 
     it { is_expected.not_to be_empty }
 
-    describe 'del_max' do
-      subject { queue.del_max }
+    describe 'del_min' do
+      subject { queue.del_min }
 
       it 'equals to that element' do
         expect(subject).to eq(2)
@@ -34,11 +34,11 @@ RSpec.describe Algorithms::DataStructures::MaxPriorityQueue do
       queue.insert(2)
     end
 
-    describe 'del_max' do
+    describe 'del_min' do
       it 'equals to that element' do
-        expect(queue.del_max).to eq(3)
-        expect(queue.del_max).to eq(2)
-        expect(queue.del_max).to eq(1)
+        expect(queue.del_min).to eq(1)
+        expect(queue.del_min).to eq(2)
+        expect(queue.del_min).to eq(3)
       end
     end
   end

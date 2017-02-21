@@ -4,8 +4,8 @@ module Algorithms
   module DataStructures
     module PriorityQueues
       class Max < Base
-        def initialize
-          super(:<)
+        def initialize(property = :itself)
+          super(:<, property)
         end
 
         alias_method :del_max, :del

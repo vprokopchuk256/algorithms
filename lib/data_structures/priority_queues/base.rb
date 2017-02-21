@@ -2,9 +2,10 @@ module Algorithms
   module DataStructures
     module PriorityQueues
       class Base
-        def initialize(operator)
+        def initialize(operator, property)
           @arr = [nil]
           @operator = operator
+          @property = property
         end
 
         def empty?
@@ -49,7 +50,7 @@ module Algorithms
         end
 
         def compare(i, j)
-          @arr[i].public_send(@operator, @arr[j])
+          @arr[i].public_send(@property).public_send(@operator, @arr[j].public_send(@property))
         end
       end
     end

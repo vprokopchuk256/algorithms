@@ -1,7 +1,10 @@
+require 'ostruct'
+
 require_relative '../../../../lib/data_structures/priority_queues/min.rb'
 
 RSpec.describe Algorithms::DataStructures::PriorityQueues::Min do
-  subject(:queue) { described_class.new }
+  let(:property) { :itself }
+  subject(:queue) { described_class.new(property) }
 
   it { is_expected.to be_empty }
 
@@ -39,6 +42,27 @@ RSpec.describe Algorithms::DataStructures::PriorityQueues::Min do
         expect(queue.del_min).to eq(1)
         expect(queue.del_min).to eq(2)
         expect(queue.del_min).to eq(3)
+      end
+    end
+  end
+
+  context 'when 3 elements with property were added' do
+    let(:el1) { OpenStruct.new(weight: 1) }
+    let(:el2) { OpenStruct.new(weight: 2) }
+    let(:el3) { OpenStruct.new(weight: 3) }
+    let(:property) { :weight }
+
+    before do
+      queue.insert(el3)
+      queue.insert(el1)
+      queue.insert(el2)
+    end
+
+    describe 'del_min' do
+      it 'equals to that element' do
+        expect(queue.del_min).to eq(el1)
+        expect(queue.del_min).to eq(el2)
+        expect(queue.del_min).to eq(el3)
       end
     end
   end

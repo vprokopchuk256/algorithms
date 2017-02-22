@@ -1,8 +1,8 @@
-require_relative '../../../../lib/algorithms/graph/kruskal_mst'
-require_relative '../../../../lib/data_structures/graphs/edge_weighted'
-require_relative '../../../../lib/data_structures/graphs/edge'
+require_relative '../../../../../lib/algorithms/graph/mst/kruskal'
+require_relative '../../../../../lib/data_structures/graphs/edge_weighted'
+require_relative '../../../../../lib/data_structures/graphs/edge'
 
-RSpec.describe Algorithms::Graph::KruskalMST do
+RSpec.describe Algorithms::Graph::MST::Kruskal do
   let(:graph) { Algorithms::DataStructures::Graphs::EdgeWeighted.new(6) }
 
   subject(:algorithm) { described_class.new(graph).to_a }

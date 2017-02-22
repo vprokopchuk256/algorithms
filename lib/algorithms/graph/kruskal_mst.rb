@@ -15,7 +15,7 @@ module Algorithms
       def each
         return enum_for(:each) unless block_given?
 
-        pq = Algorithms::DataStructures::PriorityQueues::Min.new(:weight)
+        pq = Algorithms::DataStructures::PriorityQueues::Min.new
         graph.edges.each(&pq.method(:insert))
 
         uf = Algorithms::UnionFind::QuickFind.new(graph.size)

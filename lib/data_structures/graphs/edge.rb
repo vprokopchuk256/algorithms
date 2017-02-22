@@ -2,6 +2,8 @@ module Algorithms
   module DataStructures
     module Graphs
       class Edge < Struct.new(:v, :w, :weight)
+        include Comparable
+
         alias_method :either, :v
 
         def other(vertex)

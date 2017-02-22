@@ -30,14 +30,18 @@ module Algorithms
         private
 
         def swim(k = last_index)
-          swap(k / 2, k) while k > 1 && compare(k / 2, k)
+          while k > 1 && compare(k / 2, k)
+            swap(k, k / 2)
+            k = k / 2
+          end
         end
 
         def sink(k = 1)
-          while (j = 2 * k) <= @arr.length - 1
+          while (j = 2 * k) <= last_index
             j += 1 if j < last_index && compare(j, j + 1)
             break if not compare(k, j)
             swap(k, j)
+            k = j
           end
         end
 

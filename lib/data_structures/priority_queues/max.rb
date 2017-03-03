@@ -1,15 +1,9 @@
-require_relative 'base'
+require_relative 'index_max'
 
 module Algorithms
   module DataStructures
     module PriorityQueues
-      class Max < Base
-        def initialize(property = :itself)
-          super(:<, property)
-        end
-
-        alias_method :del_max, :del
-      end
+      Max = Class.new(IndexMax)
     end
   end
 end

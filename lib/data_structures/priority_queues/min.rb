@@ -1,15 +1,9 @@
-require_relative 'base'
+require_relative 'index_min'
 
 module Algorithms
   module DataStructures
     module PriorityQueues
-      class Min < Base
-        def initialize(property = :itself)
-          super(:>, property)
-        end
-
-        alias_method :del_min, :del
-      end
+      Min = Class.new(IndexMin)
     end
   end
 end

@@ -35,13 +35,31 @@ RSpec.describe Algorithms::DataStructures::Graphs::SP do
       end
 
       it { is_expected.to eq(150) }
+
+      context 'and last edge is relaxed with less weight' do
+        before do
+          sp.relax(Algorithms::DataStructures::Graphs::DirectedEdge.new(s, 3, 20))
+          sp.relax(Algorithms::DataStructures::Graphs::DirectedEdge.new(3, v, 30))
+        end
+
+        it { is_expected.to eq(50) }
+      end
+
+      context 'and last edge is relaxed with greater weight' do
+        before do
+          sp.relax(Algorithms::DataStructures::Graphs::DirectedEdge.new(s, 3, 200))
+          sp.relax(Algorithms::DataStructures::Graphs::DirectedEdge.new(3, v, 300))
+        end
+
+        it { is_expected.to eq(150) }
+      end
     end
 
     context 'when there is no path to the specified vertex' do
       let(:v) { 2 }
 
       it 'raises and error' do
-        expect{ subject }.to raise_error(described_class::Error)
+        expect(subject).to be_infinite
       end
     end
   end
@@ -75,6 +93,15 @@ RSpec.describe Algorithms::DataStructures::Graphs::SP do
       end
 
       it { is_expected.to eq([0, 1, 2]) }
+
+      context 'and last edge is relaxed with less weight' do
+        before do
+          sp.relax(Algorithms::DataStructures::Graphs::DirectedEdge.new(s, 3, 20))
+          sp.relax(Algorithms::DataStructures::Graphs::DirectedEdge.new(3, v, 30))
+        end
+
+        it { is_expected.to eq([0, 3, 2]) }
+      end
     end
 
     context 'when there is no path to the specified vertex' do

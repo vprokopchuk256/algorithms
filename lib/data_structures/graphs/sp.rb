@@ -18,7 +18,7 @@ module Algorithms
         end
 
         def distance_to(v)
-          raise Error unless @distance_to[v]
+          return Float::INFINITY unless @distance_to[v]
 
           return @distance_to[v]
         end
@@ -38,8 +38,11 @@ module Algorithms
         end
 
         def relax(edge)
+          return false if edge_to(edge.to) && distance_to(edge.to) < distance_to(edge.from) + edge.weight
+
           @edge_to[edge.to] = edge
           @distance_to[edge.to] = edge.weight + (distance_to(edge.from) || 0)
+          true
         end
 
         private

@@ -17,6 +17,10 @@ module Algorithms
           @edges.push(edge)
           adj(edge.from).push(edge)
         end
+
+        def empty?
+          @edges.empty?
+        end
       end
     end
   end

@@ -30,6 +30,10 @@ module Algorithms
           pq.length - 1
         end
 
+        def contains?(index)
+          !!qp[index]
+        end
+
         def empty?
           length <= 0
         end

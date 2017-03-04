@@ -6,6 +6,16 @@ module Algorithms
     module PriorityQueues
       class IndexMin < IndexBase
         include MinBehaviour
+
+        def decrease_key(index, key)
+          keys[index] = key
+          swim(qp[index])
+        end
+
+        def increase_key(index, key)
+          keys[index] = key
+          sink(qp[index])
+        end
       end
     end
   end

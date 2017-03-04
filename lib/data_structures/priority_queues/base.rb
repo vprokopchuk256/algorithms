@@ -5,23 +5,19 @@ module Algorithms
         attr_reader :operator, :attribute
 
         def initialize(operator, attribute)
-          @keys = {}
-          @pq = [0]
-          @qp = {}
-
           @operator = operator
           @attribute = attribute
         end
 
         def insert(index, key)
-          @keys[index] = key
-          @pq.push(index)
-          @qp[index] = @pq.length - 1
-          swim(@pq.length - 1)
+          keys[index] = key
+          pq.push(index)
+          qp[index] = pq.length - 1
+          swim(pq.length - 1)
         end
 
         def del
-          @pq[1].tap do
+          pq[1].tap do
             if length > 1
               swap(1, length)
               sink(1)
@@ -31,27 +27,41 @@ module Algorithms
         end
 
         def length
-          @pq.length - 1
+          pq.length - 1
         end
 
         def empty?
           length <= 0
         end
 
+        protected
+
+        def keys
+          @key ||= {}
+        end
+
+        def pq
+          @pq ||= [0]
+        end
+
+        def qp
+          @qp ||= {}
+        end
+
         private
 
         def pop
-          @pq.pop.tap do |index|
-            @keys.delete(index)
-            @qp.delete(index)
+          pq.pop.tap do |index|
+            keys.delete(index)
+            qp.delete(index)
           end
         end
 
         def swap(i, j)
           assert_pq_index(i, j)
 
-          @pq[i], @pq[j] = @pq[j], @pq[i]
-          @qp[@pq[i]], @qp[@pq[j]] = i, j
+          pq[i], pq[j] = pq[j], pq[i]
+          qp[pq[i]], qp[pq[j]] = i, j
         end
 
         def swim(k)
@@ -72,14 +82,14 @@ module Algorithms
 
         def assert_pq_index(*indexes)
           indexes.each do |index|
-            raise "#{index} if out of pq bounds" if index < 1 and index >= @pq.length
+            raise "#{index} if out of pq bounds" if index < 1 and index >= pq.length
           end
         end
 
         def compare(i, j)
-          @keys[@pq[i]]
+          keys[pq[i]]
             .public_send(attribute)
-            .public_send(operator, @keys[@pq[j]].public_send(attribute))
+            .public_send(operator, keys[pq[j]].public_send(attribute))
         end
       end
     end

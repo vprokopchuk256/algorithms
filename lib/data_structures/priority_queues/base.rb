@@ -48,22 +48,6 @@ module Algorithms
           @qp ||= {}
         end
 
-        private
-
-        def pop
-          pq.pop.tap do |index|
-            keys.delete(index)
-            qp.delete(index)
-          end
-        end
-
-        def swap(i, j)
-          assert_pq_index(i, j)
-
-          pq[i], pq[j] = pq[j], pq[i]
-          qp[pq[i]], qp[pq[j]] = i, j
-        end
-
         def swim(k)
           while k > 1 && compare(k / 2, k)
             swap(k, k / 2)
@@ -78,6 +62,22 @@ module Algorithms
             swap(k, j)
             k = j
           end
+        end
+
+        private
+
+        def pop
+          pq.pop.tap do |index|
+            keys.delete(index)
+            qp.delete(index)
+          end
+        end
+
+        def swap(i, j)
+          assert_pq_index(i, j)
+
+          pq[i], pq[j] = pq[j], pq[i]
+          qp[pq[i]], qp[pq[j]] = i, j
         end
 
         def assert_pq_index(*indexes)

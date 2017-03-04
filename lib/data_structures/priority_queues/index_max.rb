@@ -1,14 +1,10 @@
-require_relative 'base'
+require_relative 'max_behaviour'
 
 module Algorithms
   module DataStructures
     module PriorityQueues
       class IndexMax < Base
-        def initialize(attribute = :itself)
-          super(:<, attribute)
-        end
-
-        alias_method :del_max, :del
+        include MaxBehaviour
       end
     end
   end

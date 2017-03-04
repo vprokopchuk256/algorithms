@@ -58,6 +58,103 @@ RSpec.describe Algorithms::DataStructures::PriorityQueues::IndexMin do
     end
   end
 
+  context 'when element key is updated' do
+    before do
+      queue.insert(9, 9)
+      queue.insert(8, 8)
+      queue.insert(7, 7)
+      queue.insert(6, 6)
+      queue.insert(5, 5)
+      queue.insert(4, 4)
+      queue.insert(3, 3)
+      queue.insert(2, 2)
+      queue.insert(1, 1)
+    end
+
+    before do
+      queue.change_key(9, 1)
+      queue.change_key(1, 9)
+    end
+
+    describe 'del_min' do
+      it 'equals to that element' do
+        expect(queue.del_min).to eq(9)
+        expect(queue.del_min).to eq(2)
+        expect(queue.del_min).to eq(3)
+        expect(queue.del_min).to eq(4)
+        expect(queue.del_min).to eq(5)
+        expect(queue.del_min).to eq(6)
+        expect(queue.del_min).to eq(7)
+        expect(queue.del_min).to eq(8)
+        expect(queue.del_min).to eq(1)
+      end
+    end
+  end
+
+  context 'when element key is decreased' do
+    before do
+      queue.insert(9, 9)
+      queue.insert(8, 8)
+      queue.insert(7, 7)
+      queue.insert(6, 6)
+      queue.insert(5, 5)
+      queue.insert(4, 4)
+      queue.insert(3, 3)
+      queue.insert(2, 2)
+      queue.insert(1, 1)
+    end
+
+    before do
+      queue.decrease_key(9, 0)
+    end
+
+    describe 'del_min' do
+      it 'equals to that element' do
+        expect(queue.del_min).to eq(9)
+        expect(queue.del_min).to eq(1)
+        expect(queue.del_min).to eq(2)
+        expect(queue.del_min).to eq(3)
+        expect(queue.del_min).to eq(4)
+        expect(queue.del_min).to eq(5)
+        expect(queue.del_min).to eq(6)
+        expect(queue.del_min).to eq(7)
+        expect(queue.del_min).to eq(8)
+      end
+    end
+  end
+
+  context 'when element key is increased' do
+    before do
+      queue.insert(9, 9)
+      queue.insert(8, 8)
+      queue.insert(7, 7)
+      queue.insert(6, 6)
+      queue.insert(5, 5)
+      queue.insert(4, 4)
+      queue.insert(3, 3)
+      queue.insert(2, 2)
+      queue.insert(1, 1)
+    end
+
+    before do
+      queue.increase_key(1, 10)
+    end
+
+    describe 'del_min' do
+      it 'equals to that element' do
+        expect(queue.del_min).to eq(2)
+        expect(queue.del_min).to eq(3)
+        expect(queue.del_min).to eq(4)
+        expect(queue.del_min).to eq(5)
+        expect(queue.del_min).to eq(6)
+        expect(queue.del_min).to eq(7)
+        expect(queue.del_min).to eq(8)
+        expect(queue.del_min).to eq(9)
+        expect(queue.del_min).to eq(1)
+      end
+    end
+  end
+
   context 'when 9 elements with property were added' do
     let(:property) { :itself }
 

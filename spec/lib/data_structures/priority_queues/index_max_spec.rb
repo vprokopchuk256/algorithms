@@ -13,7 +13,7 @@ RSpec.describe Algorithms::DataStructures::PriorityQueues::IndexMax do
   end
 
   context 'when 1 element is added' do
-    before { queue.insert(1, :key1) }
+    before { queue.insert(1, 1) }
 
     it { is_expected.not_to be_empty }
 
@@ -32,15 +32,15 @@ RSpec.describe Algorithms::DataStructures::PriorityQueues::IndexMax do
 
   context 'when 9 elements were added' do
     before do
-      queue.insert(1, :key1)
-      queue.insert(2, :key2)
-      queue.insert(3, :key3)
-      queue.insert(4, :key4)
-      queue.insert(5, :key5)
-      queue.insert(6, :key6)
-      queue.insert(7, :key7)
-      queue.insert(8, :key8)
-      queue.insert(9, :key9)
+      queue.insert(1, 1)
+      queue.insert(2, 2)
+      queue.insert(3, 3)
+      queue.insert(4, 4)
+      queue.insert(5, 5)
+      queue.insert(6, 6)
+      queue.insert(7, 7)
+      queue.insert(8, 8)
+      queue.insert(9, 9)
     end
 
     describe 'del_max' do
@@ -72,15 +72,15 @@ RSpec.describe Algorithms::DataStructures::PriorityQueues::IndexMax do
     let(:el9) { OpenStruct.new(weight: 9) }
 
     before do
-      queue.insert(el9, :key9)
-      queue.insert(el8, :key8)
-      queue.insert(el7, :key7)
-      queue.insert(el6, :key6)
-      queue.insert(el5, :key5)
-      queue.insert(el4, :key4)
-      queue.insert(el3, :key3)
-      queue.insert(el2, :key2)
-      queue.insert(el1, :key1)
+      queue.insert(el9, 9)
+      queue.insert(el8, 8)
+      queue.insert(el7, 7)
+      queue.insert(el6, 6)
+      queue.insert(el5, 5)
+      queue.insert(el4, 4)
+      queue.insert(el3, 3)
+      queue.insert(el2, 2)
+      queue.insert(el1, 1)
     end
 
     describe 'del_max' do

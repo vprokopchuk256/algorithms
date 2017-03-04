@@ -1,9 +1,9 @@
-require_relative 'index_base'
+require_relative 'base'
 
 module Algorithms
   module DataStructures
     module PriorityQueues
-      class IndexMax < IndexBase
+      class IndexMax < Base
         def initialize(attribute = :itself)
           super(:<, attribute)
         end

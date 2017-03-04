@@ -1,7 +1,7 @@
 module Algorithms
   module DataStructures
     module PriorityQueues
-      class IndexBase
+      class Base
         attr_reader :operator, :attribute
 
         def initialize(operator, attribute)
@@ -13,7 +13,7 @@ module Algorithms
           @attribute = attribute
         end
 
-        def insert(index, key = index)
+        def insert(index, key)
           @keys[index] = key
           @pq.push(index)
           @qp[index] = @pq.length - 1

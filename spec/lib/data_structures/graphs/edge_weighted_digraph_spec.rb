@@ -2,7 +2,7 @@ require_relative '../../../../lib/data_structures/graphs/directed_edge.rb'
 require_relative '../../../../lib/data_structures/graphs/edge_weighted_digraph.rb'
 
 RSpec.describe Algorithms::DataStructures::Graphs::EdgeWeightedDigraph do
-  let(:graph) { described_class.new(2) }
+  let(:graph) { described_class.new }
 
   describe '#adj' do
     it 'returns empty list when edges adjusted to any vertex' do

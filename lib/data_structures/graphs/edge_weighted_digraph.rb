@@ -2,11 +2,10 @@ module Algorithms
   module DataStructures
     module Graphs
       class EdgeWeightedDigraph
-        attr_reader :size, :map, :edges
+        attr_reader :map, :edges
 
-        def initialize(size)
-          @size = size
-          @map = Array.new(size)
+        def initialize
+          @map = []
           @edges = []
         end
 

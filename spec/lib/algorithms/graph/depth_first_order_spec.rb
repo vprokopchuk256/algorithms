@@ -2,8 +2,7 @@ require_relative '../../../../lib/algorithms/graph/depth_first_order'
 require_relative '../../../../lib/data_structures/graphs/directed'
 
 RSpec.describe Algorithms::Graph::DepthFirstOrder do
-  let(:number_of_vertices) { 4 }
-  let(:graph) { DataStructures::Graphs::Directed.new(number_of_vertices) }
+  let(:graph) { DataStructures::Graphs::Directed.new() }
 
   subject(:paths) { described_class.new(graph, 2) }
 

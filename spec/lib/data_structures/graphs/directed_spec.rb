@@ -1,67 +1,59 @@
+require 'rspec/its'
+
 require_relative '../../../../lib/data_structures/graphs/directed.rb'
 
 RSpec.describe DataStructures::Graphs::Directed do
-  subject(:graph) { described_class.new(vertices_number) }
+  subject(:graph) { described_class.new() }
 
-  context 'when initialized with zero' do
-    let(:vertices_number) { 0 }
+  its(:vertices_number) { is_expected.to be_zero }
+  its(:edges_number) { is_expected.to be_zero }
 
-    it 'raises an error' do
-      expect{ subject }.to raise_error(ArgumentError, /number of vertices must be greater than 1/)
+  it 'has all vertices not adjusted' do
+    expect(subject.adj(0)).to be_empty
+  end
+
+  context 'when one edge defined' do
+    before { graph.add_edge(0, 1) }
+
+    its(:vertices_number) { is_expected.to eq(2) }
+    its(:edges_number) { is_expected.to eq(1) }
+
+    its(:vertices) { is_expected.to match_array([0, 1]) }
+
+    it 'has both vertices adjusted' do
+      expect(subject.adj(0)).to eq([1])
     end
   end
 
-  context 'when initialized with 2 verticies' do
-    let(:vertices_number) { 2 }
+  context 'when one non zero based edge defined' do
+    before { graph.add_edge(2, 1) }
 
-    it 'must have valid vertices number' do
-      expect(subject.vertices_number).to eq(vertices_number)
-    end
+    its(:vertices_number) { is_expected.to eq(2) }
+    its(:edges_number) { is_expected.to eq(1) }
 
-    it 'has zero edges' do
-      expect(subject.edges_number).to be_zero
-    end
+    its(:vertices) { is_expected.to match_array([2, 1]) }
 
-    it 'has all vertices not adjusted' do
-      expect(subject.adj(0)).to be_empty
-    end
-
-    context 'and one edge' do
-      before { graph.add_edge(0, 1) }
-
-      it 'has zero edges' do
-        expect(subject.edges_number).to eq(1)
-      end
-
-      it 'has both vertices adjusted' do
-        expect(subject.adj(0)).to eq([1])
-      end
+    it 'has both vertices adjusted' do
+      expect(subject.adj(2)).to eq([1])
     end
   end
 
-  context 'when initialized with 3 verticies with one loop' do
-    let(:vertices_number) { 3 }
-
-    it 'must have valid vertices number' do
-      expect(subject.vertices_number).to eq(vertices_number)
+  context 'with tre edges loop' do
+    before do
+      graph.add_edge(0, 1)
+      graph.add_edge(1, 2)
+      graph.add_edge(0, 2)
     end
 
-    context 'and tree edges' do
-      before do
-        graph.add_edge(0, 1)
-        graph.add_edge(1, 2)
-        graph.add_edge(0, 2)
-      end
+    its(:vertices_number) { is_expected.to eq(3) }
+    its(:edges_number) { is_expected.to eq(3) }
 
-      it 'has three edges' do
-        expect(subject.edges_number).to eq(3)
-      end
+    its(:vertices) { is_expected.to match_array([0, 1, 2]) }
 
-      it 'has all vertices adjusted' do
-        expect(subject.adj(0)).to eq([1, 2])
-        expect(subject.adj(1)).to eq([2])
-        expect(subject.adj(2)).to eq([])
-      end
+    it 'has all vertices adjusted' do
+      expect(subject.adj(0)).to eq([1, 2])
+      expect(subject.adj(1)).to eq([2])
+      expect(subject.adj(2)).to eq([])
     end
   end
 end

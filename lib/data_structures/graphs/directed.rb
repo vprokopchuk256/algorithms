@@ -1,15 +1,12 @@
 module DataStructures
   module Graphs
     class Directed
-      def initialize(vertices_number)
-        raise ArgumentError, 'number of vertices must be greater than 1' if vertices_number <= 1
-
-        @vertices_number = vertices_number
+      def initialize
         @map = []
       end
 
       def vertices_number
-        @vertices_number ||= 0
+        @map.reject(&:nil?).size
       end
 
       def edges_number
@@ -18,10 +15,17 @@ module DataStructures
 
       def add_edge(v, w)
         adj(v).push(w)
+        adj(w)
       end
 
       def adj(v)
         @map[v] ||= []
+      end
+
+      def vertices
+        return to_enum(:vertices) unless block_given?
+
+        @map.each_with_index{ |v, i| yield(i) if v }
       end
     end
   end

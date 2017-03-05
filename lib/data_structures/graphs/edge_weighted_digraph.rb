@@ -16,6 +16,21 @@ module Algorithms
         def add(edge)
           @edges.push(edge)
           adj(edge.from).push(edge)
+          adj(edge.to)
+        end
+
+        def edges_number
+          @edges.size
+        end
+
+        def vertices_number
+          @map.reject(&:nil?).size
+        end
+
+        def vertices
+          return to_enum(:vertices) unless block_given?
+
+          @map.each_with_index{ |v, i| yield(i) if v }
         end
 
         def empty?

@@ -4,11 +4,12 @@ module Algorithms
       include Enumerable
 
       class EnumerationBlock
-        attr_reader :graph, :block
+        attr_reader :graph, :block, :adj_attribute
 
-        def initialize graph, &block
+        def initialize graph, adj_attribute, &block
           @graph = graph
           @block = block
+          @adj_attribute = adj_attribute
         end
 
         def visit(v)
@@ -17,7 +18,7 @@ module Algorithms
           mark_as_visited(v)
           block.call(v)
 
-          graph.adj(v).each(&method(:visit))
+          graph.adj(v).collect(&adj_attribute).each(&method(:visit))
         end
 
         private
@@ -36,17 +37,18 @@ module Algorithms
       end
       private_constant :EnumerationBlock
 
-      attr_reader :graph, :from
+      attr_reader :graph, :from, :adj_attribute
 
-      def initialize(graph, from)
+      def initialize(graph, from, adj_attribute: :itself)
         @graph = graph
         @from = from
+        @adj_attribute = adj_attribute
       end
 
       def each(&block)
         return enum_for(:each) unless block_given?
 
-        EnumerationBlock.new(graph, &block).visit(from)
+        EnumerationBlock.new(graph, adj_attribute, &block).visit(from)
       end
     end
   end

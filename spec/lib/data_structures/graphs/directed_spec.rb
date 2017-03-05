@@ -2,7 +2,7 @@ require 'rspec/its'
 
 require_relative '../../../../lib/data_structures/graphs/directed.rb'
 
-RSpec.describe DataStructures::Graphs::Directed do
+RSpec.describe Algorithms::DataStructures::Graphs::Directed do
   subject(:graph) { described_class.new() }
 
   its(:vertices_number) { is_expected.to be_zero }

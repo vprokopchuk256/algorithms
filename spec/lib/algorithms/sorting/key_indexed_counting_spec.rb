@@ -15,5 +15,8 @@ RSpec.describe Algorithms::Sorting::KeyIndexedCounting do
 
       it { is_expected.to eq(%w[0 0 1 1 1 2 3 3 4 5 5 5]) }
     end
+
+    context 'when buffer is specified' do
+    end
   end
 end

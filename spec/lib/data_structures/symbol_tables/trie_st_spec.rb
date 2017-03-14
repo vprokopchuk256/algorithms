@@ -44,4 +44,46 @@ RSpec.describe DataStructures::SymbolTables::TrieST do
       it { is_expected.to eq(true) }
     end
   end
+
+  describe '#keys' do
+    let(:prefix) { '' }
+
+    subject do
+      st.keys(prefix).to_a
+    end
+
+    context 'uc0' do
+      it { is_expected.to match_array([]) }
+    end
+
+    context 'uc1' do
+      before { st.put('aaa', 1) }
+
+      it { is_expected.to match_array(%w[aaa]) }
+    end
+
+    context 'uc2' do
+      before do
+        st.put('aaa', 1)
+        st.put('bbb', 2)
+      end
+
+      it { is_expected.to match_array(%w[aaa bbb]) }
+
+      context 'uc2.1' do
+        let(:prefix) { 'a' }
+
+        it { is_expected.to match_array(%w[aaa]) }
+      end
+    end
+
+    context 'uc1' do
+      before do
+        st.put('aa', 1)
+        st.put('aaa', 2)
+      end
+
+      it { is_expected.to match_array(%w[aa aaa]) }
+    end
+  end
 end

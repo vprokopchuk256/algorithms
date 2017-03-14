@@ -6,6 +6,8 @@ module DataStructures
       Error = Class.new(StandardError)
 
       class Node
+        attr_reader :value
+
         def put(key, value, d = 0)
           @value = value and return unless key[d]
 
@@ -13,10 +15,18 @@ module DataStructures
         end
 
         def get(key, d = 0)
-          return @value unless key[d]
+          return self unless key[d]
           return unless node = next_nodes[key[d].ord]
 
           node.get(key, d + 1)
+        end
+
+        def keys(prefix = '', &block)
+          block.call(prefix) if @value
+
+          next_nodes.each_with_index do |n, i|
+            n&.keys(prefix + i.chr, &block)
+          end
         end
 
         private
@@ -29,7 +39,7 @@ module DataStructures
 
 
       def get(key)
-        root.get(key)
+        root.get(key)&.value
       end
       alias_method :[], :get
 
@@ -41,6 +51,12 @@ module DataStructures
         raise Error unless key
 
         root.put(key, value)
+      end
+
+      def keys(prefix = '', &block)
+        return to_enum(:keys, prefix) unless block
+
+        root.get(prefix)&.keys(prefix, &block)
       end
 
       private

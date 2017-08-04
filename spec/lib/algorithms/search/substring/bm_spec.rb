@@ -1,4 +1,4 @@
-require_relative '../../../../../lib/algorithms/search/substring/bm.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Search::Substring::BM do
   let(:pattern) { 'a' }

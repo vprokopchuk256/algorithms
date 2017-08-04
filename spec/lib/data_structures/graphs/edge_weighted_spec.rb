@@ -1,5 +1,4 @@
-require_relative '../../../../lib/data_structures/graphs/edge.rb'
-require_relative '../../../../lib/data_structures/graphs/edge_weighted.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::DataStructures::Graphs::EdgeWeighted do
   let(:graph) { described_class.new(2) }

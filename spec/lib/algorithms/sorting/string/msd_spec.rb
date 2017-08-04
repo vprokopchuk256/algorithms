@@ -1,4 +1,4 @@
-require_relative '../../../../../lib/algorithms/sorting/string/msd.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Sorting::MSD do
   let(:algorithm) { described_class.new(arr) }

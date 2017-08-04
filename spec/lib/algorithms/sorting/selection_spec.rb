@@ -1,4 +1,4 @@
-require_relative '../../../../lib/algorithms/sorting/selection.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Sorting::Selection do
   let(:arr) { [] }

@@ -1,4 +1,4 @@
-require_relative '../../../../lib/data_structures/graphs/indirected.rb'
+require 'spec_helper'
 
 RSpec.describe DataStructures::Graphs::Indirected do
 

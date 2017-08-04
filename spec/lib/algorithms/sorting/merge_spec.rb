@@ -1,4 +1,4 @@
-require_relative '../../../../lib/algorithms/sorting/merge.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Sorting::Merge do
   let(:arr) { [] }

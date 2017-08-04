@@ -1,4 +1,4 @@
-require_relative '../../../../lib/algorithms/union_find/quick_find.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::UnionFind::QuickFind do
   let(:number_of_items) { 10 }

@@ -1,4 +1,4 @@
-require_relative '../../../../lib/data_structures/graphs/edge.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::DataStructures::Graphs::Edge do
   let(:w) { 10 }

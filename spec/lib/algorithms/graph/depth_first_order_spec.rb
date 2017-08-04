@@ -1,7 +1,4 @@
-require_relative '../../../../lib/algorithms/graph/depth_first_order'
-require_relative '../../../../lib/data_structures/graphs/directed'
-require_relative '../../../../lib/data_structures/graphs/edge_weighted_digraph'
-require_relative '../../../../lib/data_structures/graphs/directed_edge'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Graph::DepthFirstOrder do
   context 'directed graph' do

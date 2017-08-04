@@ -1,4 +1,4 @@
-require_relative '../../../../lib/data_structures/symbol_tables/binary.rb'
+require 'spec_helper'
 
 RSpec.describe DataStructures::SymbolTables::Binary do
   subject(:table) { described_class.new }

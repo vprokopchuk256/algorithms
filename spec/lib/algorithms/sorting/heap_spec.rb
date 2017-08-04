@@ -1,4 +1,4 @@
-require_relative '../../../../lib/algorithms/sorting/heap.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Sorting::Heap do
   let(:arr) { [] }

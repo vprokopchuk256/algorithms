@@ -1,4 +1,4 @@
-require_relative '../../../../lib/data_structures/symbol_tables/separate_chaining_hash.rb'
+require 'spec_helper'
 
 RSpec.describe DataStructures::SymbolTables::SeparateChainingHash do
   subject(:table) { described_class.new }

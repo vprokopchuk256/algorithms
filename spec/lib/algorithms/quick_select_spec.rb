@@ -1,4 +1,4 @@
-require_relative '../../../lib/algorithms/quick_select.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::QuickSelect do
   let(:arr) { [1, 3, 2] }

@@ -1,4 +1,4 @@
-require_relative '../../../../lib/data_structures/graphs/directed_edge.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::DataStructures::Graphs::DirectedEdge do
   let(:from) { 10 }

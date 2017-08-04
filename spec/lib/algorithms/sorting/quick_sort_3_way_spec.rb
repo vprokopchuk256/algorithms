@@ -1,4 +1,4 @@
-require_relative '../../../../lib/algorithms/sorting/quick_sort_3_way.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Sorting::QuickSort3Way do
   let(:arr) { [] }

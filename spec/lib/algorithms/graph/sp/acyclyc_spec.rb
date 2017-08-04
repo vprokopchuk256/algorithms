@@ -1,8 +1,4 @@
-require 'rspec/its'
-
-require_relative '../../../../../lib/algorithms/graph/sp/acyclyc'
-require_relative '../../../../../lib/data_structures/graphs/edge_weighted_digraph'
-require_relative '../../../../../lib/data_structures/graphs/directed_edge'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Graph::SP::Acyclyc do
   let(:s) { 0 }

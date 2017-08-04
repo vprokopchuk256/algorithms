@@ -1,7 +1,4 @@
-require 'rspec/its'
-
-require_relative '../../../../lib/data_structures/graphs/directed_edge.rb'
-require_relative '../../../../lib/data_structures/graphs/edge_weighted_digraph.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::DataStructures::Graphs::EdgeWeightedDigraph do
   subject(:graph) { described_class.new }

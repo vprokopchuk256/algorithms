@@ -1,4 +1,4 @@
-require_relative '../../../../lib/data_structures/symbol_tables/trie_st.rb'
+require 'spec_helper'
 
 RSpec.describe DataStructures::SymbolTables::TrieST do
   let(:st) { described_class.new }

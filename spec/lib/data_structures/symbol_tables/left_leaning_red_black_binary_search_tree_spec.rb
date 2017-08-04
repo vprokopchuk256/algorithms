@@ -1,4 +1,4 @@
-require_relative '../../../../lib/data_structures/symbol_tables/left_leaning_red_black_binary_search_tree.rb'
+require 'spec_helper'
 
 RSpec.describe DataStructures::SymbolTables::LeftLeaningRedBlackBinarySearchTree do
   subject(:table) { described_class.new }

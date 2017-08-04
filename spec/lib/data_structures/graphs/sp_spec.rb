@@ -1,5 +1,4 @@
-require_relative '../../../../lib/data_structures/graphs/sp'
-require_relative '../../../../lib/data_structures/graphs/directed_edge'
+require 'spec_helper'
 
 RSpec.describe Algorithms::DataStructures::Graphs::SP do
   let(:s) { 0 }

@@ -1,4 +1,4 @@
-require_relative '../../../../lib/algorithms/search/binary.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Search::Binary do
   describe '#index_of' do

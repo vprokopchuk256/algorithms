@@ -1,4 +1,4 @@
-require_relative '../../../../lib/algorithms/sorting/key_indexed_counting.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Sorting::KeyIndexedCounting do
   let(:arr) { [3, 0, 2, 5, 5, 1, 3, 1, 5, 1, 4, 0] }

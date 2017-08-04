@@ -1,4 +1,4 @@
-require_relative '../../../../../lib/algorithms/sorting/string/lsd.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Sorting::LSD do
   let(:length) { 3 }

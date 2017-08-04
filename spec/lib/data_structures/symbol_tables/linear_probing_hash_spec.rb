@@ -1,4 +1,4 @@
-require_relative '../../../../lib/data_structures/symbol_tables/linear_probing_hash.rb'
+require 'spec_helper'
 
 RSpec.describe DataStructures::SymbolTables::LinearProbingHash do
   subject(:table) { described_class.new }

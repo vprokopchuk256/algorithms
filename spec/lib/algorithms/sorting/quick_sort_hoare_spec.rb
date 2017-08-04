@@ -1,4 +1,4 @@
-require_relative '../../../../lib/algorithms/sorting/quick_sort_hoare.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Sorting::QuickSortHoare do
   let(:arr) { [] }

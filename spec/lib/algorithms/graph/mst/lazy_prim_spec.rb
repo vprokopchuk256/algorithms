@@ -1,6 +1,4 @@
-require_relative '../../../../../lib/algorithms/graph/mst/lazy_prim'
-require_relative '../../../../../lib/data_structures/graphs/edge_weighted'
-require_relative '../../../../../lib/data_structures/graphs/edge'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Graph::MST::LazyPrim do
   let(:graph) { Algorithms::DataStructures::Graphs::EdgeWeighted.new(6) }

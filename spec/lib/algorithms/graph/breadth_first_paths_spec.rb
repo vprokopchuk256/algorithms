@@ -1,5 +1,4 @@
-require_relative '../../../../lib/algorithms/graph/breadth_first_paths'
-require_relative '../../../../lib/data_structures/graphs/indirected'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Graph::BreadthFirstPaths do
   let(:number_of_vertices) { 4 }

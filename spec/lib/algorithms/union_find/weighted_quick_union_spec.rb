@@ -1,4 +1,4 @@
-require_relative '../../../../lib/algorithms/union_find/weighted_quick_union.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::UnionFind::WeightedQuickUnion do
   let(:number_of_items) { 10 }

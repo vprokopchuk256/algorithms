@@ -1,6 +1,4 @@
-require 'ostruct'
-
-require_relative '../../../../lib/data_structures/priority_queues/min.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::DataStructures::PriorityQueues::Min do
   let(:property) { :itself }

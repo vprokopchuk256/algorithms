@@ -1,4 +1,4 @@
-require_relative '../../../../../lib/algorithms/search/substring/kmp.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::Search::Substring::KMP do
   let(:pattern) { 'a' }

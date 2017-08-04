@@ -1,5 +1,4 @@
-require 'ostruct'
-require_relative '../../../../lib/data_structures/priority_queues/index_max.rb'
+require 'spec_helper'
 
 RSpec.describe Algorithms::DataStructures::PriorityQueues::IndexMax do
   let(:property) { :itself }

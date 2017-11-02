@@ -1,14 +1,16 @@
 module DataStructures
   module SymbolTables
     class LeftLeaningRedBlackBinarySearchTree
-      class Node
-        attr_accessor :key, :value, :left, :right, :color
+      class RedBlackNode < SimpleDelegator
+        attr_accessor :color
 
-        def initialize key, value, color
-          @key, @value, @color = key, value, color
+        def initialize(node, color)
+          super(node)
+
+          @color = color
         end
       end
-      private_constant :Node
+      private_constant :RedBlackNode
 
       def get(key)
         node = @root
@@ -63,7 +65,7 @@ module DataStructures
       end
 
       def put_node(node, key, value)
-        return Node.new(key, value, :red) unless node
+        return RedBlackNode.new(TreeNode.new(key, value), :red) unless node
 
         cmp = key <=> node.key
 

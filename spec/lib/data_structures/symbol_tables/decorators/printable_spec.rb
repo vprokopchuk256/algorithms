@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 RSpec.describe DataStructures::SymbolTables::Decorators::Printable do
-  let(:root) { TreeNode.new(:key, 10) }
+  let(:root) { DataStructures::SymbolTables::TreeNode.new(10) }
 
   subject(:tree) { described_class.new(root) }
 
   describe '#initialize' do
-    its(:key) { is_expected.to eq(:key) }
-    its(:value) { is_expected.to eq(10) }
+    its(:key) { is_expected.to eq(10) }
   end
 
   describe '#print' do
@@ -16,8 +15,8 @@ RSpec.describe DataStructures::SymbolTables::Decorators::Printable do
     it { is_expected.to eq('10') }
 
     context 'when there are children nodes' do
-      let(:left) { TreeNode.new(:left_key, 11) }
-      let(:right) { TreeNode.new(:right_key, 12) }
+      let(:left) { DataStructures::SymbolTables::TreeNode.new(11) }
+      let(:right) { DataStructures::SymbolTables::TreeNode.new(12) }
 
       before do
         root.left = left
@@ -32,8 +31,8 @@ RSpec.describe DataStructures::SymbolTables::Decorators::Printable do
       end
 
       context 'and there is grand childrens' do
-        let(:left_right) { TreeNode.new(:left_right_key, 13) }
-        let(:right_left) { TreeNode.new(:right_left_key, 14) }
+        let(:left_right) { DataStructures::SymbolTables::TreeNode.new(13) }
+        let(:right_left) { DataStructures::SymbolTables::TreeNode.new(14) }
 
         before do
           left.right = left_right

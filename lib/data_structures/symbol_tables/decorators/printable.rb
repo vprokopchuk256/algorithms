@@ -5,7 +5,7 @@ module DataStructures
         attr_reader :value_width
 
         def initialize(node, value_width = 2)
-          super(WithStats.new(node))
+          super(node)
 
           @value_width = value_width
         end
@@ -19,18 +19,30 @@ module DataStructures
         private
 
         def fill_map(node, top, left, width)
-          map[top][left + width / 2] = node&.value.to_s.center(value_width)
+          return if node.nil?
 
-          fill_map(node.left, top + 1, left, width / 2) if node.left
-          fill_map(node.right, top + 1, left + width / 2 + 1, width / 2) if node.right
+          map[top][left + width / 2] = node.key.to_s.center(value_width)
+
+          fill_map(node.left, top + 1, left, width / 2)
+          fill_map(node.right, top + 1, left + width / 2 + 1, width / 2)
         end
 
         def map
-          @map ||= Array.new(height + 1) { Array.new(width, " " * value_width) }
+          @map ||= Array.new(height(self) + 1) { Array.new(width, " " * value_width) }
         end
 
         def width
-          @width = 2 * 2**height - 1
+          @width = 2 * 2**height(self) - 1
+        end
+
+        def height(node)
+          return if node.nil?
+
+          leave?(node) ? 0 : 1 + [height(node.left), height(node.right)].compact.max
+        end
+
+        def leave?(node)
+          node.left.nil? && node.right.nil?
         end
       end
     end

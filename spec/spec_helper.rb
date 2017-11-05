@@ -1,6 +1,7 @@
 require 'rspec/its'
 require 'ostruct'
 require 'pry-byebug'
+require 'stackprof'
 
 Dir[File.join(".", "lib", "**/*.rb")].each { |f| require f }
 
